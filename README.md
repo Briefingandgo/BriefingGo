@@ -1,1 +1,1 @@
-# BrifinGo
+# Briefing & Go
