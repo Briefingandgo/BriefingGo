@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow" />
+    
+    <meta name="Brifin & Go" content="Eslogan" />
+    <meta itemprop="name" content="Briefin&Go">
+    <meta itemprop="description" content="Briefin&Go - Eslogan">
+    
+    <link rel="shortcut icon" href="images/propuestas_logo/image (1).png" type="image/jpeg" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <title>Briefin&Go</title>
+</head>
+
+<body>
+
+    <div class="machine-container">
+        <img src="images/Animation/Estructura_1.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/Palanca_1.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/Botones_1.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/Logo_nombre.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/Luces_1.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/Pulsa_1.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/Categorias_1.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/indicadores_botones.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/teoria.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/plantilla.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/inspo.png" alt="Tragaperras Retro" class="machine-bg"> 
+        <img src="images/Animation/Flechas_1.png" alt="Flechas Animadas" class="machine-bg"> 
+
+
+
+
+
+
+        <div class="slot-container">
+             <div class="slot" id="slot-marca">GO</div> 
+             <div class="slot" id="slot-tono">GO</div> 
+             <div class="slot" id="slot-medio">GO</div>
+             <div class="slot" id="slot-regla">GO</div> 
+        </div>    
+        
+        <div id="lever-hitbox" onclick="pullLever()"></div>
+
+        <div id="btn-instrucciones" class="red-button-hitbox" onclick="openModal('modal-instrucciones')"></div>
+        
+        <div id="btn-nosotras" class="red-button-hitbox" onclick="showNosotrasPage()"></div>
+        
+        <div id="btn-contacto" class="red-button-hitbox" onclick="openModal('modal-contacto')"></div>
+
+        <div id="btn-teoria" class="top-left-hitbox" onclick="showFullPage('teoria-page')"></div>
+        <div id="btn-inspo" class="top-left-hitbox" onclick="showFullPage('inspo-page')"></div>
+        <div id="btn-plantilla" class="top-left-hitbox" onclick="showFullPage('plantilla-page')"></div>
+        </div> 
+
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay" onclick="closeAllModals()"></div>
+
+    <div id="modal-instrucciones" class="modal-content">
+        <span class="close-btn" onclick="closeAllModals()">X</span>
+        <h2>Instrucciones</h2>
+        <p>1. Tira de la palanca.</p>
+        <p>2. Obtén una combinación loca.</p>
+        <p>3. ¡Crea sin miedo!</p>
+    </div>
+
+    <div id="modal-contacto" class="modal-content">
+        <span class="close-btn" onclick="closeAllModals()">X</span>
+        <h2>Contacto</h2>
+        <p>¿Te ha gustado? ¡Compártelo!</p>
+        <br>
+        <p>📸 <a href="https://instagram.com/briefingandgo" target="_blank">@briefingandgo</a></p>
+		<p>💌 <a href="https://gmail.com/briefingandgo" target="_blank">briefingandgo@gmail.com</a></p>
+    </div>
+
+    <div id="nosotras-page" class="full-page-view">
+        <div class="page-header">
+            <h1>Sobre Nosotras</h1>
+            <button onclick="showMachinePage()">← VOLVER</button>
+        </div>
+        
+        <div class="page-content">
+            <img src="images/sobre_nostras/nosotras.png" alt="Información sobre el equipo" class="nosotras-image">
+            
+            <div class="nosotras-texto">
+                <h2>Briefing & Go: La slot que lo cambia todo</h2>
+                <p>Somos un equipo de mentes creativas cansadas de los briefings aburridos. Creemos que la mejor publicidad surge de las combinaciones más inesperadas.</p>
+                <p>Esta máquina no es solo un juego, es una herramienta para romper el bloqueo creativo, desafiar lo obvio y encontrar ese plot twist que hará brillar tu próxima campaña.</p>
+                <p>¡Te invitamos a probar y a crear sin límites!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay" onclick="closeAllModals()"></div>
+
+    <div id="modal-instrucciones" class="modal-content">
+        </div>
+
+    <div id="modal-contacto" class="modal-content">
+        </div>
+
+    <div id="nosotras-page" class="full-page-view">
+        </div>
+    
+    <div id="teoria-page" class="full-page-view">
+        <div class="page-header">
+            <h1>Teoría Creativa</h1>
+            <button onclick="showMachinePage()">← VOLVER</button>
+        </div>
+        <div class="page-content nosotras-texto">
+        <h2>Guía para la creación</h2>
+        
+        <p>¿Cansado de que la inspiración parezca un premio de consolación? En Briefin&Go, creemos que la creatividad tiene reglas... ¡y las hemos recopilado todas!</p>
+        
+        <p>Tras cuatro años de inmersión total en conceptos de Marketing, Publicidad y Estrategia, hemos condensado nuestro cerebro en un documento descargable. Este no es un simple resumen: es la guía de supervivencia para que tu briefing aleatorio aterrice con la estrategia correcta.</p>
+        
+        <p>Si la máquina te ha escupido una Regla (AIDA, Arquetipos, Plot Twist...) que suena a chino, o simplemente quieres profundizar en el porqué de cada giro, aquí tienes la solución.</p>
+        
+        <p style="text-align: center; margin-top: 5vmin;">
+            <a href="#" target="_blank" style="font-size: 3vmin; font-weight: bold; padding: 2vmin; border: 2px solid #AC0F27; background-color: #fff; text-decoration: none; color: #AC0F27; box-shadow: 0.5vmin 0.5vmin 0px #AC0F27; transition: all 0.1s ease;">
+                DESCARGAR GUÍA (¡GRATIS!)
+            </a>
+        </p>
+    </div>
+</div>
+
+<div id="plantilla-page" class="full-page-view">
+    <div class="page-header">
+        <h1>Plantilla de Briefing</h1>
+        <button onclick="showMachinePage()">← VOLVER</button>
+    </div>
+    
+    <div class="page-content nosotras-texto">
+        <h2>El Método (Plantilla)</h2>
+        
+        <p>¿Combinación explosiva a la vista? ¡Ahora toca aterrizar la idea! En la carrera aprendimos que la creatividad no es magia, es metodología. Por eso, hemos destilado nuestro proceso en una plantilla de briefing fácil de usar.</p>
+        
+        <p>Olvídate del miedo al lienzo en blanco. Nuestra plantilla te guía a través de categorías clave para que, paso a paso, esa combinación loca se convierta en una estrategia sólida. Es la hoja de ruta que te lleva de la inspiración al <strong>Killer concept.</strong></p>
+        
+        <h3>Nuestro Secreto: El <strong>Insight</strong></h3>
+
+        <p>Nuestro método se centra en el <strong>Insight</strong>. ¿Qué es eso? Es esa <strong>verdad absoluta y universal</strong> que todos sentimos, pero nadie se atreve a decir en voz alta.</p>
+        
+        <p>Al tener este método de trabajo que pone el insight en el centro, los bloqueos creativos pasan a ser solo un mal recuerdo. Usa tu resultado de Briefin&Go y transforma la aleatoriedad en intencionalidad.</p>
+        
+        <p style="text-align: center; margin-top: 5vmin;">
+            <a href="docs/guia_teoria_creativa.pdf" target="_blank" style="font-size: 3vmin; font-weight: bold; padding: 2vmin; border: 2px solid #AC0F27; background-color: #fff; text-decoration: none; color: #AC0F27; box-shadow: 0.5vmin 0.5vmin 0px #AC0F27; transition: all 0.1s ease;">
+                DESCARGAR PLANTILLA (PDF)
+            </a>
+        </p>
+    </div>
+</div>
+
+    <div id="inspo-page" class="full-page-view">
+        <div class="page-header">
+            <h1>Inspiración</h1>
+            <button onclick="showMachinePage()">← VOLVER</button>
+        </div>
+        <div class="page-content nosotras-texto">
+            <h2>Tu fiel compañero</h2>
+            <p>¿Atascado? ¿Cerebro en modo “pantalla de carga infinita”?Tranquilidad: hemos creado nuestro propio universo de ideas en Pinterest para que nunca te falte chispa cuando te pongas a crear.</p>
+
+            <p>Encontrarás carpetas de tipografías, paletas de colores, esquemas, elementos digitales y un montón de detallitos que te servirán. Es como una máquina de inspiración donde cada clic es un “¡ding ding ding!” creativo: entras sin rumbo y sales con mil ideas.</p>
+
+            <p>Así que si te quedas bloqueado, date una vuelta por ahí. Mira, guarda, combina, roba con cariño (inspiración, se entiende) y vuelve cuando quieras.</p>
+
+            <p style="text-align: center; margin-top: 5vmin;">
+            <a href="https://es.pinterest.com/briefingandgo/" target="_blank" style="font-size: 3vmin; font-weight: bold; padding: 2vmin; border: 2px solid #AC0F27; background-color: #fff; text-decoration: none; color: #AC0F27; box-shadow: 0.5vmin 0.5vmin 0px #AC0F27; transition: all 0.1s ease;">
+                VER PERFIL DE PINTEREST
+            </a>
+    
+    
+        </div>
+    </div>
+<div id="nosotras-page" class="full-page-view"></div>
+</body>
+</html>
+    

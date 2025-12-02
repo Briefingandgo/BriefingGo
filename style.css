@@ -1,0 +1,288 @@
+body {
+    background-color: #fff;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 { display: none; } /* Oculto por defecto, se muestra en la página de Nosotras */
+
+/* 1. Contenedor de la máquina */
+.machine-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.machine-bg {
+    position: absolute;
+    height: 120vmin;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    display: block;
+}
+
+.slot-container {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-51%, 1vmin);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2vmin; 
+    background-color: #000000;
+    border-radius: 1.2vmin; 
+    padding: 1vmin;
+}     
+
+.slot {
+    /* CAMBIO: Se usan 'vmin' para el tamaño. Ahora escalarán */
+    width: 19vmin; 
+    height: 28vmin; 
+
+    background-color: #fff;           
+    
+    /* CAMBIO: Se usan 'vmin' para el redondeo */
+    border-radius: 1.2vmin; 
+
+    /* ⬅️ MODIFICACIÓN CLAVE: Color rojo y tamaño grande */
+    color: #AC0F27; /* O puedes usar simplemente 'red' */
+    font-weight: 900; 
+    font-size: 10vmin; /* Un tamaño grande para el "GO" */
+    /* FIN MODIFICACIONES */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-align: center;
+
+    z-index: 10;
+    line-height: 1.1;
+}
+
+/* AJUSTES DE IMÁGENES EN SLOTS */
+#slot-tono  img {width: 120%; height: auto; object-fit: contain; transform: scale(2.1); }  
+#slot-regla img { width: 110%; height: auto; object-fit: contain; transform: scale(1.3); }  
+#slot-medio img { width: 110%; height: auto; object-fit: contain; transform: scale(1.3); }  
+#slot-marca img { width: 110%; height: auto; object-fit: contain; transform: scale(1.3); }  
+
+/* HITBOX PALANCA */
+#lever-hitbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50vmin,-100vmin);
+    height: 100vmin; 
+    width: 50vmin; 
+    height: 500vmin; 
+    cursor: pointer;
+    z-index: 20;
+}
+#lever-hitbox.disabled { cursor: wait; }
+
+/* ================================================= */
+/* BOTONES INVISIBLES (HITBOXES) */
+/* ================================================= */
+
+.red-button-hitbox {
+    position: absolute;
+    bottom: 10vmin; 
+    width: 9vmin;  
+    height: 9vmin; 
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 50;
+    background-color: transparent;
+    border: none;
+}
+
+/* Posiciones Horizontales */
+#btn-instrucciones { left: 36.5%; transform: translateX(-50%); }
+#btn-nosotras { left: 50%; transform: translateX(-50%); }
+#btn-contacto { left: 63.5%; transform: translateX(-50%); }
+
+/* ================================================= */
+/* BOTONES SUPERIOR IZQUIERDA (HITBOXES) */
+/* ================================================= */
+
+.top-left-hitbox {
+    position: absolute;
+    /* Ajusta estos valores para que cubran las imágenes 'teoria.png', 'plantilla.png' e 'inspo.png' */
+    width: 14vmin; 
+    height: 10vmin; 
+    cursor: pointer;
+    z-index: 50;
+    background-color:transparent; /* Mantenlo transparente */
+    border: none;
+    /* Usaremos 'top' y 'left' para posicionarlos */
+    top: 50%;
+    left: 50%;
+    /* Mueve la referencia general al área superior izquierda */
+    transform: translate(-77vmin, -33vmin);
+     
+}
+
+/* Posiciones relativas para cada botón */
+#btn-teoria { 
+    /* Mueve a la posición de la imagen de 'teoría' (la de más arriba) */
+    transform: translate(-85vmin, -44vmin);
+}
+
+#btn-plantilla { 
+    /* Mueve a la posición de la imagen de 'plantilla' (la del medio) */
+    transform: translate(-85vmin, -33vmin);
+}
+
+#btn-inspo { 
+    /* Mueve a la posición de la imagen de 'inspo' (la de más abajo) */
+    transform: translate(-83vmin, -21vmin);
+}
+
+
+/* ================================================= */
+/* MODALES DE TEXTO (Instrucciones/Contacto) */
+/* ================================================= */
+
+.modal-overlay {
+    display: none;
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 90;
+}
+
+.modal-content {
+    display: none;
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vmin; max-width: 400px;
+    background-color: #fff;
+    border: 0.4vmin solid #000;
+    box-shadow: 0.8vmin 0.8vmin 0px #000; 
+    border-radius: 1vmin;
+    padding: 4vmin;
+    z-index: 100;
+    text-align: left;
+    font-family: inherit;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    text-transform: uppercase;
+    border-bottom: 2px dashed #000;
+    padding-bottom: 1vmin;
+}
+
+.modal-content a { color: #000; font-weight: bold; }
+
+.close-btn {
+    position: absolute; top: 1vmin; right: 2vmin;
+    font-size: 4vmin; font-weight: bold; cursor: pointer;
+}
+.close-btn:hover { color: red; }
+
+
+/* ================================================= */
+/* VISTA DE PÁGINA COMPLETA "SOBRE NOSOTRAS" */
+/* ================================================= */
+
+.full-page-view {
+    display: none; /* Oculto, se muestra con JS */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: #fff;
+    z-index: 100;
+    overflow-y: auto;
+    padding: 3vmin;
+    box-sizing: border-box;
+    text-align: center; /* Centra los elementos a nivel de bloque */
+    font-family: inherit;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed #000;
+    padding-bottom: 1vmin;
+    margin-bottom: 2vmin;
+}
+
+.page-header h1 {
+    display: block; 
+    font-size: 5vmin;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.page-header button {
+    font-family: inherit; 
+    font-size: 3vmin;
+    padding: 1vmin 2vmin;
+    border: 2px solid #000;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0.5vmin 0.5vmin 0px #000; 
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+}
+.page-header button:active {
+    box-shadow: 0 0 0 #000;
+    transform: translate(0.5vmin, 0.5vmin);
+}
+
+.page-content {
+    /* Aquí permitimos el flujo normal de elementos apilados */
+    width: 100%;
+    margin-top: 3vmin;
+    text-align: center;
+}
+
+/* ⬅️ IMAGEN GRANDE Y CENTRADA */
+.nosotras-image {
+    max-width: 90%; /* Ocupa casi todo el ancho */
+    max-height: 70vh; /* Máximo 70% de la altura de la ventana */
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto 5vmin auto; /* Centra horizontalmente y añade margen inferior */
+    display: block; /* Necesario para el margin: auto */
+}
+
+/* --- ESTILOS PARA EL TEXTO DESCRIPTIVO (BLOQUE CENTRADO) --- */
+.nosotras-texto {
+    max-width: 800px; /* Ancho cómodo para la lectura */
+    margin: 0 auto; /* Centramos el bloque de texto en la pantalla */
+    text-align: left; /* El texto dentro del bloque está alineado a la izquierda (como en tu screenshot) */
+    padding: 0 2vmin;
+}
+
+.nosotras-texto h2 {
+    font-size: 4vmin; 
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 2vmin;
+    border-bottom: 2px dashed #000;
+    padding-bottom: 1vmin;
+    text-align: center; /* Centramos el título del bloque de texto */
+}
+
+.nosotras-texto p {
+    font-size: 2.5vmin;
+    line-height: 1.6;
+    margin-bottom: 2vmin;
+    text-align: justify; /* Justificamos los párrafos para un look más formal */
+}
